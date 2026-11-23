@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>David | ICT Specialist & ERP Odoo Consultant</title>
+<meta name="description" content="Network installation, Odoo ERP support, server administration, CCTV deployment and IT consulting in Nairobi, Kenya.">
+<meta name="theme-color" content="#2563EB">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<style>
+:root{--ink:#0c1a2b;--ink2:#14283f;--blue:#2563eb;--sky:#7cc4ff;--paper:#f4f7fb;--card:#fff;--line:#d9e2ee;--text:#1c2b3d;--mute:#5b6b80;--ok:#16a34a;--warn:#d97706;--bad:#dc2626}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;color:var(--text);background:var(--paper)}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;line-height:1.1;margin:0}
+a{color:inherit}.wrap{max-width:1080px;margin:auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:rgba(12,26,43,.94);backdrop-filter:blur(8px)}
+nav{display:flex;align-items:center;gap:18px;height:62px;color:#fff}
+nav b{font:800 20px "Bricolage Grotesque";margin-right:auto}nav a{text-decoration:none;font-size:15px;opacity:.85}nav a:hover{opacity:1}
+.btn{display:inline-block;border:0;border-radius:8px;padding:11px 20px;font:500 15px inherit;font-family:inherit;background:var(--blue);color:#fff;cursor:pointer;text-decoration:none}
+.btn:hover{background:#1d4fd0}.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.4)}.btn.sm{padding:6px 12px;font-size:13px}.btn.red{background:var(--bad)}
+.hero{background:var(--ink);color:#fff;padding:64px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:800}.hero p{color:#b8c8dc;max-width:46ch;margin:18px 0 26px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+svg.topo .l{stroke:var(--sky);stroke-width:1.6;stroke-dasharray:6 8;animation:flow 1.6s linear infinite;opacity:.8}
+@keyframes flow{to{stroke-dashoffset:-28}}
+@media(prefers-reduced-motion:reduce){svg.topo .l{animation:none}}
+section{padding:68px 0}section h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:8px}
+.sub{color:var(--mute);margin:0 0 30px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{font-size:20px;margin-bottom:8px}.card p{margin:0;color:var(--mute);font-size:15px}
+.card.feat{background:var(--ink2);color:#fff;border:0}.card.feat p{color:#b8c8dc}
+.tags{display:flex;flex-wrap:wrap;gap:8px}.tags span{background:#e6eefb;color:#1a3f8f;border-radius:99px;padding:4px 12px;font-size:14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+form{display:grid;gap:12px}label{font-size:14px;font-weight:500;display:grid;gap:4px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+.msg{font-size:14px;min-height:20px}.msg.err{color:var(--bad)}.msg.ok{color:var(--ok)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf0f8}
+.tw{overflow-x:auto}.st{font-weight:500}.st.pending{color:var(--warn)}.st.confirmed{color:var(--blue)}.st.done{color:var(--ok)}
+dialog{border:0;border-radius:14px;padding:26px;width:min(400px,92vw)}dialog::backdrop{background:rgba(12,26,43,.6)}
+footer{background:var(--ink);color:#b8c8dc;padding:30px 0;font-size:14px}
+#dash{display:none;background:#e9eff8}
+@media(max-width:780px){.hero .wrap,.split{grid-template-columns:1fr}nav a.h{display:none}}
+</style></head><body>
+<header><div class="wrap"><nav>
+<b>David<span style="color:var(--sky)">.ict</span></b>
+<a class="h" href="#services">Services</a><a class="h" href="#work">Work</a><a class="h" href="#skills">Skills</a><a class="h" href="#book">Book</a>
+<a href="#dash" id="dashLink" style="display:none">Dashboard</a>
+<button class="btn sm" id="authBtn">Log in</button></nav></div></header>
+
+<div class="hero"><div class="wrap"><div>
+<h1>Networks that stay up. Systems that stay clear.</h1>
+<p>ICT specialist in Nairobi. I install and support networks, Odoo ERP, servers and CCTV for homes, shops and growing businesses.</p>
+<div class="row"><a class="btn" href="#book">Book a service</a><a class="btn ghost" id="wa" href="#">WhatsApp me</a></div></div>
+<svg class="topo" viewBox="0 0 400 300" role="img" aria-label="Network diagram: internet to router to switch to server, cameras and PCs">
+<g stroke-linecap="round"><path class="l" d="M200 40V100M200 130V170M200 170L90 230M200 170L200 240M200 170L310 230"/></g>
+<g fill="#14283f" stroke="#7cc4ff" stroke-width="2">
+<circle cx="200" cy="28" r="18"/><rect x="170" y="100" width="60" height="30" rx="6"/><rect x="165" y="158" width="70" height="24" rx="5"/>
+<rect x="62" y="226" width="56" height="34" rx="5"/><rect x="172" y="240" width="56" height="34" rx="5"/><circle cx="310" cy="244" r="22"/></g>
+<g fill="#fff" font-size="12" font-family="IBM Plex Sans" text-anchor="middle">
+<text x="200" y="32">WAN</text><text x="200" y="119">Router</text><text x="200" y="174">Switch</text><text x="90" y="247">Server</text><text x="200" y="261">PCs</text><text x="310" y="248">CCTV</text></g></svg>
+</div></div>
+
+<section id="services"><div class="wrap"><h2>What I do</h2><p class="sub">Clear scope, written quotes, and documentation you keep.</p>
+<div class="grid" id="svcGrid"></div></div></section>
+
+<section id="work" style="background:#fff"><div class="wrap"><h2>Recent work</h2><p class="sub">Typical jobs across Nairobi and nearby towns.</p>
+<div class="grid">
+<div class="card"><h3>Shop LAN and Wi-Fi rollout</h3><p>Structured cabling, managed switch with VLANs for POS and guests, two access points, router failover.</p></div>
+<div class="card"><h3>Odoo for a retail business</h3><p>Inventory, sales and invoicing configured, staff trained, daily backups scheduled.</p></div>
+<div class="card"><h3>8-camera CCTV system</h3><p>IP cameras on PoE, NVR with remote viewing, retention set to 30 days.</p></div>
+<div class="card"><h3>Small office server</h3><p>Linux file server, user accounts, automated backups, monitoring alerts.</p></div></div></div></section>
+
+<section id="skills"><div class="wrap split"><div><h2>Skills</h2><p class="sub">Hands-on, from cable to server.</p>
+<div class="tags"><span>Router and switch configuration</span><span>VLANs</span><span>Linux</span><span>Windows Server</span><span>Odoo ERP</span><span>CCTV</span><span>Troubleshooting</span><span>Documentation</span></div></div>
+<div class="card feat"><h3>Working toward CCNA</h3><p>I am building on practical networking experience with CCNA 200-301 study and a path to systems administration.</p></div></div></section>
+
+<section id="book" style="background:#fff"><div class="wrap split"><div><h2>Book a service</h2>
+<p class="sub">Log in to send a request and track its status. I reply by phone or WhatsApp to confirm.</p>
+<p class="sub">Contact: <a id="mail" href="#">email</a></p></div>
+<form id="bookForm"><label>Your name<input name="name" required></label>
+<label>Phone<input name="phone" type="tel" placeholder="07xx xxx xxx" required></label>
+<label>Service<select name="service" id="svcSel"></select></label>
+<label>Preferred date<input name="date" type="date" required></label>
+<label>What do you need?<textarea name="details" rows="3" required></textarea></label>
+<button class="btn" type="submit">Send request</button><div class="msg" id="bookMsg" role="status"></div></form></div></section>
+
+<section id="dash"><div class="wrap"><h2 id="dashTitle">My bookings</h2><p class="sub" id="dashSub"></p>
+<div class="tw"><table><thead><tr><th>Date</th><th>Service</th><th>Client</th><th>Details</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div></div></section>
+
+<footer><div class="wrap">© <span id="yr"></span> David · ICT Specialist · Nairobi, Kenya</div></footer>
+
+<dialog id="authDlg"><form id="authForm"><h3 id="authTitle">Log in</h3>
+<label>Email<input name="email" type="email" required autocomplete="email"></label>
+<label>Password<input name="password" type="password" minlength="6" required autocomplete="current-password"></label>
+<button class="btn" type="submit" id="authGo">Log in</button>
+<button class="btn ghost" type="button" id="authSwap" style="color:var(--text);border-color:var(--line)">Create an account</button>
+<div class="msg" id="authMsg" role="status"></div></form></dialog>
+
+<script>
+/* ===== CONFIG: edit these ===== */
+const CFG={
+  supabaseUrl:"", supabaseKey:"",          // leave empty = demo mode (data stays in this browser)
+  adminEmail:"admin@example.com",          // this account sees all bookings
+  whatsapp:"254700000000", email:"hello@example.com"
+};
+const SERVICES=[
+["Network installation","Cabling, routers, switches, VLANs and Wi-Fi planned and installed to last."],
+["Odoo ERP support","Setup, modules, user training, fixes and backups for Odoo."],
+["Server administration","Linux and Windows servers, accounts, updates, backups and monitoring."],
+["CCTV deployment","IP and analog cameras, NVR setup and remote viewing."],
+["Network troubleshooting","Slow links, drops, IP conflicts and dead ports traced and fixed."],
+["IT consulting","Equipment advice, upgrade plans and written recommendations."]];
+/* ===== data layer ===== */
+const sb=(CFG.supabaseUrl&&window.supabase)?supabase.createClient(CFG.supabaseUrl,CFG.supabaseKey):null;
+const LS=(k,v)=>v===undefined?JSON.parse(localStorage.getItem(k)||"null"):localStorage.setItem(k,JSON.stringify(v));
+const API={
+ async user(){if(sb){const{data}=await sb.auth.getUser();return data.user?{id:data.user.id,email:data.user.email}:null}return LS("session")},
+ async signUp(e,p){
+  if(sb){const{data,error}=await sb.auth.signUp({email:e,password:p});if(error)throw error;
+   if(!data.session)throw new Error("Check your email to confirm your account, then log in.");return{id:data.user.id,email:e}}
+  const u=LS("users")||[];if(u.some(x=>x.email===e))throw new Error("That email already has an account. Log in instead.");
+  const n={id:crypto.randomUUID(),email:e,password:p};LS("users",[...u,n]);LS("session",{id:n.id,email:e});return{id:n.id,email:e}},
+ async signIn(e,p){
+  if(sb){const{data,error}=await sb.auth.signInWithPassword({email:e,password:p});if(error)throw error;return{id:data.user.id,email:e}}
+  const n=(LS("users")||[]).find(x=>x.email===e&&x.password===p);if(!n)throw new Error("Wrong email or password.");
+  LS("session",{id:n.id,email:e});return{id:n.id,email:e}},
+ async signOut(){if(sb)await sb.auth.signOut();else localStorage.removeItem("session")},
+ async list(u,admin){
+  if(sb){const{data,error}=await sb.from("bookings").select("*").order("created_at",{ascending:false});if(error)throw error;return data}
+  return(LS("bookings")||[]).filter(b=>admin||b.user_id===u.id).sort((a,b)=>b.created_at.localeCompare(a.created_at))},
+ async add(u,b){
+  const row={...b,user_id:u.id,client_email:u.email,status:"pending"};
+  if(sb){const{error}=await sb.from("bookings").insert(row);if(error)throw error;return}
+  LS("bookings",[...(LS("bookings")||[]),{...row,id:crypto.randomUUID(),created_at:new Date().toISOString()}])},
+ async status(id,s){if(sb){const{error}=await sb.from("bookings").update({status:s}).eq("id",id);if(error)throw error;return}
+  LS("bookings",(LS("bookings")||[]).map(b=>b.id===id?{...b,status:s}:b))},
+ async del(id){if(sb){const{error}=await sb.from("bookings").delete().eq("id",id);if(error)throw error;return}
+  LS("bookings",(LS("bookings")||[]).filter(b=>b.id!==id))}
+};
+/* ===== UI ===== */
+const $=s=>document.querySelector(s);let me=null,mode="in";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const isAdmin=()=>me&&me.email.toLowerCase()===CFG.adminEmail.toLowerCase();
+$("#yr").textContent=new Date().getFullYear();
+$("#wa").href="https://wa.me/"+CFG.whatsapp;$("#mail").href="mailto:"+CFG.email;$("#mail").textContent=CFG.email;
+$("#svcGrid").innerHTML=SERVICES.map((s,i)=>`<div class="card${i==1?" feat":""}"><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join("");
+$("#svcSel").innerHTML=SERVICES.map(s=>`<option>${s[0]}</option>`).join("");
+const tomorrow=new Date(Date.now()+864e5).toISOString().slice(0,10);document.querySelector('[name=date]').min=tomorrow;
+
+function authMode(m){mode=m;$("#authTitle").textContent=m=="in"?"Log in":"Create an account";$("#authGo").textContent=m=="in"?"Log in":"Create account";
+ $("#authSwap").textContent=m=="in"?"Create an account":"I already have an account";$("#authMsg").textContent=""}
+$("#authSwap").onclick=()=>authMode(mode=="in"?"up":"in");
+$("#authBtn").onclick=async()=>{if(me){await API.signOut();me=null;await refresh()}else{authMode("in");$("#authDlg").showModal()}};
+$("#authForm").onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),m=$("#authMsg");m.className="msg";m.textContent="Working...";
+ try{me=await(mode=="in"?API.signIn:API.signUp)(f.get("email").trim(),f.get("password"));$("#authDlg").close();e.target.reset();await refresh()}
+ catch(x){m.className="msg err";m.textContent=x.message}};
+$("#bookForm").onsubmit=async e=>{e.preventDefault();const m=$("#bookMsg");m.className="msg";
+ if(!me){m.className="msg err";m.textContent="Log in or create an account to send your request.";authMode("up");$("#authDlg").showModal();return}
+ const f=Object.fromEntries(new FormData(e.target));
+ try{await API.add(me,f);e.target.reset();m.className="msg ok";m.textContent="Request sent. Track it in your dashboard below.";await renderRows()}
+ catch(x){m.className="msg err";m.textContent="Could not send: "+x.message}};
+async function renderRows(){
+ if(!me)return;const adm=isAdmin();let list=[];
+ try{list=await API.list(me,adm)}catch(x){$("#rows").innerHTML=`<tr><td colspan=6>Could not load bookings: ${esc(x.message)}</td></tr>`;return}
+ $("#dashTitle").textContent=adm?"All bookings (admin)":"My bookings";
+ $("#dashSub").textContent=adm?"Confirm, complete or delete client requests.":"Signed in as "+me.email;
+ $("#rows").innerHTML=list.length?list.map(b=>`<tr><td>${esc(b.date)}</td><td>${esc(b.service)}</td>
+ <td>${esc(b.name)}<br>${esc(b.phone)}${adm?"<br>"+esc(b.client_email):""}</td><td>${esc(b.details)}</td>
+ <td class="st ${esc(b.status)}">${esc(b.status)}</td><td>${adm?`<button class="btn sm" data-a="confirmed" data-id="${esc(b.id)}">Confirm</button>
+ <button class="btn sm" data-a="done" data-id="${esc(b.id)}">Done</button> <button class="btn sm red" data-a="del" data-id="${esc(b.id)}">Delete</button>`:""}</td></tr>`).join("")
+ :`<tr><td colspan=6>No bookings yet. Use the form above to send your first request.</td></tr>`}
+$("#rows").onclick=async e=>{const b=e.target.closest("button");if(!b)return;
+ try{b.dataset.a=="del"?await API.del(b.dataset.id):await API.status(b.dataset.id,b.dataset.a)}catch(x){alert(x.message)}await renderRows()};
+async function refresh(){me=me||await API.user();
+ $("#authBtn").textContent=me?"Log out":"Log in";$("#dash").style.display=me?"block":"none";$("#dashLink").style.display=me?"inline":"none";
+ if(me){const n=document.querySelector('[name=name]');if(!n.value)n.value="";await renderRows()}}
+refresh();
+</script></body></html>
